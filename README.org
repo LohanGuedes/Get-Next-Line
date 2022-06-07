@@ -18,3 +18,10 @@ This Project will allow me to add a very convenient function to my collection ([
 | Return Value       | Read line: Correct behavior, ~NULL~: There is nothing else to read, or an error occured |
 | External Functions | read, malloc, free                                                                    |
 | Description        | Write a function that returns a line read from a file descriptor.                     |
+
+** Notes about specific topics
+the notes I do are pretty much private, but I'm thinking about making them public inside my github or my weblog (when I create one.). So keep in mind this link below will *on pourpose* be broken
+
++ [[id:80563d0d-a9e6-4c47-b621-881c428ce960][C Programming Language -> Ecole42]]
++ [[id:ece3e548-58cf-4f64-ade3-3430d14fd044][Static Variables]]
++ [[id:cc12db0f-b9d2-40ff-9659-ab3da1fa1acd][Header Files]]
