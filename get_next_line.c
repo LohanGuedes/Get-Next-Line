@@ -5,31 +5,55 @@
 ** Get next line function breakdown
 **
 ** 1. Check buffer until you find the new line - return len of line or 0 if no \n
+**
 */
 
 char *get_next_line(int fd)
 {
-	static char *trash;
-	char *final;
+	static char *work; //Working string
+	char *buffer; // read holder
+	int rbamount;
 
-	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
-	return final;
-}
+	rbamount = 1;
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if(!buffer)
+		return NULL;
 
-char *save_after_nl(char *buffer, int i_nl)
-{
-	char *after;
-	after = ft_substr(buffer, buffer[i_nl + 1], BUFFER_SIZE);
-	return after;
-}
+	printf("rbamount: %d\n", rbamount);
+	printf("work %s\n", work);
+	printf("index of first \\n in work: %s\n", ft_strchr(work, '\n'));
 
-char *getnl(char *buffer, int fd)
-{
-	char *temp;
-	if(!strfnl(buffer))
+	while (!ft_strchr(work, '\n') && rbamount)
 	{
-		read(fd, buffer, BUFFER_SIZE);
+		printf("hey");
+		rbamount = read(fd, buffer, BUFFER_SIZE);
+		buffer[rbamount] = '\0';
+		work = ft_strjoin(work, buffer);
+		/* printf("rbamount: %d\n", rbamount); */
+		/* printf("work %s\n", work); */
+		/* printf("index of first \\n in work: %d\n", strfnl(work)); */
 	}
 
-
+	return (ft_substr(work, 0, ft_strlen(work)));
 }
+
+
+/* char *getnl(char *buffer, int fd) */
+/* { */
+/* 	char *temp; */
+/* 	if(!strfnl(buffer)) */
+/* 	{ */
+/* 		read(fd, buffer, BUFFER_SIZE); */
+/* 	} */
+/* } */
+
+/*
+** aaaa\n
+** bbbbbbb\n
+** cccc\n
+** dd\n
+**
+**
+** "aaaa\n -bbbb\0"
+**
+*/
