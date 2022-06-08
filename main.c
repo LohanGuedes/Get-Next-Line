@@ -7,8 +7,12 @@ int main(void)
 	int fd;
 	char *returned;
 
+	returned = "aaa";
 	fd = open("./test1.txt", O_RDONLY);
-	returned = get_next_line(fd);
-	printf("%s", returned);
+	for(int i = 0; returned; i++)
+	{
+		returned = get_next_line(fd);
+		printf("%s", returned);
+	}
 	return (0);
 }
