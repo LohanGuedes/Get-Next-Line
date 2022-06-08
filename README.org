@@ -14,7 +14,7 @@ This Project will allow me to add a very convenient function to my collection ([
 | Function name      | get_next_line                                                                         |
 |--------------------+---------------------------------------------------------------------------------------|
 | Prototype          | ~char *get_next_line(int fd)~                                                           |
-| Turn in files      | fd: The file descriptorto read from                                                   |
+| Turn in files      | fd: The file descriptor to read from                                                  |
 | Return Value       | Read line: Correct behavior, ~NULL~: There is nothing else to read, or an error occured |
 | External Functions | read, malloc, free                                                                    |
 | Description        | Write a function that returns a line read from a file descriptor.                     |
