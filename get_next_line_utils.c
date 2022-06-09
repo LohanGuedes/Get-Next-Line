@@ -58,20 +58,56 @@ char	*ft_strjoin(char *work_str, char *buff)
     return (result);
 }
 
-char	*strcfln(char *work)
-/*
-** String clear first line
-** Take a string, creates a new string ignoring the first line inside it freeing
-** the string passed and returning the new string.
- */
+char	*strgln(char *work)
 {
-	char	*final;
+	size_t	i;
+	char	*result;
 
-	if(!work)
-		return NULL;
-	final = ft_substr(work, strfnl(work), ft_strlen(work));
-	if(!final)
-		return NULL;
+	i = 0;
+	if (!work)
+		return (NULL);
+	while (work[i] && work[i] != '\n')
+		i++;
+	result = malloc(sizeof(char) * (i + 2));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (work[i] && work[i] != '\n')
+	{
+		result[i] = work[i];
+		i++;
+	}
+	if (work[i] == '\n')
+	{
+		result[i] = work[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
+
+char	*strgal(char *work)
+{
+	size_t	i;
+	size_t	j;
+	char	*result;
+
+	i = 0;
+	while (work[i] && work[i] != '\n')
+		i++;
+	if (!work[i])
+	{
+		free(work);
+		return (NULL);
+	}
+	result = malloc(sizeof(char) * (ft_strlen(work) - i + 1));
+	if (!result)
+		return (NULL);
+	j = 0;
+	i++;
+	while (work[i])
+		result[j++] = work[i++];
+	result[j] = '\0';
 	free(work);
-	return (final);
+	return (result);
 }

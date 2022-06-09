@@ -10,10 +10,10 @@ int main(void)
 	returned = NULL;
 	fd = open("./test1.txt", O_RDONLY);
 
-	for(int i = 2; i < 14; i++)
+	for(int i = 0; i <= 390; i++)
 	{
 		returned = get_next_line(fd);
-		printf("%d - %s", i, returned);
+		printf("%s", returned);
 		free(returned);
 	}
 	close(fd);
