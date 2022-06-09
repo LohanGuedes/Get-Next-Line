@@ -58,3 +58,20 @@ char	*ft_strjoin(char *work_str, char *buff)
     return (result);
 }
 
+char	*strcfln(char *work)
+/*
+** String clear first line
+** Take a string, creates a new string ignoring the first line inside it freeing
+** the string passed and returning the new string.
+ */
+{
+	char	*final;
+
+	if(!work)
+		return NULL;
+	final = ft_substr(work, strfnl(work), ft_strlen(work));
+	if(!final)
+		return NULL;
+	free(work);
+	return (final);
+}

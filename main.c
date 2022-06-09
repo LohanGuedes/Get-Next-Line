@@ -7,12 +7,15 @@ int main(void)
 	int fd;
 	char *returned;
 
-	returned = "aaa";
+	returned = NULL;
 	fd = open("./test1.txt", O_RDONLY);
-	for(int i = 0; returned; i++)
+
+	for(int i = 2; i < 14; i++)
 	{
 		returned = get_next_line(fd);
-		printf("%s", returned);
+		printf("%d - %s", i, returned);
+		free(returned);
 	}
+	close(fd);
 	return (0);
 }

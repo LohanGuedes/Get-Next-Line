@@ -1,37 +1,48 @@
 #include "get_next_line.h"
 #include <stdio.h>
 
-size_t strfnl(char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char *read_fl(int fd);
-
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *work; //Working string
+	static char *work;
 	char *result;
 
-	work = read_fl(fd);
-	result = ft_substr(work, 0, (strfnl(work) + 1));
+	if (BUFFER_SIZE < 1 || fd < 0)
+			return (NULL);
+
+	work = read_fl(fd, work);
+	/* printf("GNL - Work b4: %s\n", work); */
+
+	result = ft_substr(work, 0, (strfnl(work)));
+	/* printf("GNL - Result: %s\n", result); */
+
+	work = strcfln(work);
+	/* printf("GNL - Work after: %s\n", work); */
+
 	return (result);
 }
 
-char *read_fl(int fd)
+char *read_fl(int fd, char *work)
 {
 	char *buffer;
-	char *work;
 	int rbamount;
 
 	rbamount = 1;
-	work = NULL;
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if(!buffer)
 		return NULL;
-	while (!ft_strchr(work, '\n') && rbamount)
+	while (!ft_strchr(work, '\n') && rbamount != 0)
 	{
+
 		rbamount = read(fd, buffer, BUFFER_SIZE);
+		if(rbamount == -1)
+		{
+			free(buffer);
+			return NULL;
+		}
 		buffer[rbamount] = '\0';
 		work = ft_strjoin(work, buffer);
 	}
+	free(buffer);
 	return (work);
 }
 
@@ -43,7 +54,7 @@ size_t strfnl(char *s)
 	while (s[offset++])
 		if(s[offset] == '\n')
 			return offset;
-	return offset;
+	return 0;
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
