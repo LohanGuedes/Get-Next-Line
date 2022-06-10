@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguedes <lguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 17:42:11 by lguedes           #+#    #+#             */
-/*   Updated: 2022/06/10 17:42:19 by lguedes          ###   ########.fr       */
+/*   Created: 2022/06/10 17:39:58 by lguedes           #+#    #+#             */
+/*   Updated: 2022/06/10 17:40:00 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*work;
+	static char	*work[4096];
 	char		*result;
 
 	if (BUFFER_SIZE < 1 || fd < 0)
 		return (NULL);
-	work = read_fl(fd, work);
-	if (!work)
+	work[fd] = read_fl(fd, work[fd]);
+	if (!work[fd])
 		return (NULL);
-	result = strgln(work);
-	work = strgal(work);
+	result = strgln(work[fd]);
+	work[fd] = strgal(work[fd]);
 	return (result);
 }
 

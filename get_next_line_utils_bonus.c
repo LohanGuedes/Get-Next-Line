@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguedes <lguedes@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 17:31:11 by lguedes           #+#    #+#             */
-/*   Updated: 2022/06/10 17:39:43 by lguedes          ###   ########.fr       */
+/*   Created: 2022/06/10 17:29:45 by lguedes           #+#    #+#             */
+/*   Updated: 2022/06/10 17:29:47 by lguedes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ char	*ft_strchr(char *s, int c)
 
 char	*ft_strjoin(char *work_str, char *buff)
 {
-	char	*result;
-	size_t	i;
-	size_t	j;
+	char		*result;
+	size_t		i;
+	size_t		j;
 
 	if (!work_str)
 	{
