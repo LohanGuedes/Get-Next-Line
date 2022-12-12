@@ -66,4 +66,5 @@ gcc get_next_line.c get_next_line.h get_next_line_utils.c main.c && ./a.out
 
 ## Show your support
 
-Feel free to fork this project and send a pull request to it! I would love to see possible improvements :mending_heart:. Give a star if this project helped you!
+Feel free to fork this project and send a pull request to it! I would love to see possible improvements :mending_heart:. Give a ⭐ if this project helped you!
+
