@@ -9,16 +9,6 @@ Because Reading a Line from a file descriptor is way too tedious.
 This Project will allow me to add a very convenient function to my collection.
 [libft](https://github.com/LohanGuedes/libft) but will also make me learn Static Variables and how to work with them.
 
-## Project:
-
-| Function name      | get_next_line                                                                         |
-|--------------------+---------------------------------------------------------------------------------------|
-| Prototype          | `char *get_next_line(int fd)`                                                           |
-| Turn in files      | fd: The file descriptor to read from                                                  |
-| Return Value       | Read line: Correct behavior, `NULL`: There is nothing else to read, or an error occured |
-| External Functions | read, malloc, free                                                                    |
-| Description        | Write a function that returns a line read from a file descriptor.                     |
-
 ---
 
 - Status: Finished
