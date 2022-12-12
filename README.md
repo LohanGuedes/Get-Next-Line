@@ -65,3 +65,5 @@ gcc get_next_line.c get_next_line.h get_next_line_utils.c main.c && ./a.out
 - LinkedIn: [@lohan-guedes](https://www.linkedin.com/in/lohan-guedes-0349b5239/)
 
 ## Show your support
+
+Feel free to fork this project and send a pull request to it! I would love to see possible improvements mending_heart. Give a star if this project helped you!
