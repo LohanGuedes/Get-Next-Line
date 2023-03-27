@@ -4,6 +4,7 @@
 # GNL
 Get Next Line Project for ecole42.
 Because Reading a Line from a file descriptor is way too tedious.
+:)
 
 ## Goals:
 This Project will allow me to add a very convenient function to my collection.
